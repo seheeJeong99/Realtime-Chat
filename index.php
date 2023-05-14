@@ -13,7 +13,7 @@
             <section class="form signup">
                 <header>Realtime Sehee</header>
                 <form action="#" enctype="multipart/form-data">
-                    <div class="error-txt">This is an error message!</div>
+                    <div class="error-txt"></div>
                     <div class="name-details">
                         <div class="field input">
                             <label>First Name</label>
@@ -41,7 +41,7 @@
                             <input type="submit" value="Continue to Chat">
                         </div>
                 </form>
-                <div class="link">Already signed up? <a href="#">Login now</a> </div>
+                <div class="link">Already signed up? <a href="login.php">Login now</a> </div>
             </section>
         </div>
         <script src="javascript/pass-show-hide.js"></script>
