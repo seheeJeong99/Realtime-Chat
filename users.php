@@ -1,21 +1,20 @@
 <!-- ♥태화니 사랑행♡ -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Realtime Chat With Sehee</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-    />
-  </head>
+<?php 
+  session_start();
+  if(!isset($_SESSION['unique_id'])){
+    header("location: login.php");
+  }
+?>
+<?php include_once "header.php"; ?>
   <body>
     <div class="wrapper">
       <section class="users">
         <header>
+          <?php
+            include_once "php/config.php";
+            $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}"); //현재 로그인한 사용자가 사용하고 있는 세션의 모든 데이터를 선택
+            
+          ?>
           <div class="content">
             <img src="sehee.jpg" alt="">
             <div class="details">

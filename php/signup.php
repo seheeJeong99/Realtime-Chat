@@ -43,7 +43,7 @@
                                 if(mysqli_num_rows($sql3) > 0){
                                     $row = mysql_fetch_assoc($sql3);
                                     $_SESSION['unique_id'] = $row['unique_id']; //이 세션을 활용하여 다른 php파일에서 사용자의 unique_id를 사용함
-                                    echo "Success";
+                                    echo "success";
                                 }
                             }else{
                                 echo "뭔가 잘못되었습니다";
