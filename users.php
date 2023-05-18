@@ -19,7 +19,7 @@
           ?>
           <div class="content">
             <!-- php로 이미지, 이름, 상태 넣음 -->
-            <img src="php/images//<?php echo $row['img'] ?>" alt=""> 
+            <img src="php/images/<?php echo $row['img'] ?>" alt=""> 
             <div class="details">
               <span><?php echo $row['fname'] . " " . $row['lname'] ?></span>
               <p><?php echo $row['status'] ?></p>

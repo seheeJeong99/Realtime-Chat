@@ -1,10 +1,28 @@
 const searchBar = document.querySelector(".users .search input"),
-searchBtn = document.querySelector(".users .search button");
+searchBtn = document.querySelector(".users .search button"),
+usersList = document.querySelector(".users .users-list");
 
 searchBtn.onclick = ()=>{
     searchBar.classList.toggle("active");
     searchBar.focus();
     searchBtn.classList.toggle("active");
+}
+
+searchBar.onkeyup = ()=>{
+    let searchTerm = searchBar.value;
+    //xml 시작
+    let xhr = new XMLHttpRequest();    //xml 객체 생성
+    xhr.open("POST", "php/search.php", true);
+    xhr.onload = ()=>{
+        if(xhr.readyState === XMLHttpRequest.DONE){
+            if(xhr.status === 200){
+                let data = xhr.response;
+                console.log(data);
+            }
+        }
+    }
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("searchTerm=" + searchTerm);
 }
 
 setInterval(()=>{
@@ -15,9 +33,9 @@ setInterval(()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
                 let data = xhr.response;
-                console.log(data);
+                usersList.innerHTML = data;
             }
         }
     }
     xhr.send();
-}, 500);    //이 기능은 500ms마다 반복됨
+}, 500);    //이 기능은 500ms마다 실행ㄴ됨
