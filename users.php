@@ -12,7 +12,7 @@
         <header>
           <?php
             include_once "php/config.php";
-            $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}"); //현재 로그인한 사용자가 사용하고 있는 세션의 모든 데이터를 선택
+            $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}"); //현재 로그인한 사용자의 세션을 모두 가져옴
             if(mysqli_num_rows($sql) > 0){
               $row = mysqli_fetch_assoc($sql);
             }
