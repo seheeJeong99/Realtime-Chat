@@ -4,7 +4,7 @@ errorText = form.querySelector(".error-txt");
 
 
 form.onsubmit = (e)=>{
-    e.preventDefault();
+    e.preventDefault();         //양식 제출 방지
 }
 
 continueBtn.onclick = ()=>{

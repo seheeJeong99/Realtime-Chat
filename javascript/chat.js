@@ -1,6 +1,11 @@
 const form = document.querySelector(".typing-area"),
 inputField = form.querySelector(".input-field"),
-sendBtn = form.querySelector("button");
+sendBtn = form.querySelector("button"),
+chatBox = document.querySelector(".chat-box");
+
+form.onsubmit = (e)=>{
+    e.preventDefault();         //양식 제출 방지
+}
 
 sendBtn.onclick = () =>{
     //start Ajax
@@ -9,13 +14,7 @@ sendBtn.onclick = () =>{
     xhr.onload = ()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
-                let data = xhr.response;
-                if(data == "success"){
-                    location.href = "users.php"
-                }else{
-                    errorText.textContent = data;
-                    errorText.style.display = "block";
-                }
+                inputField.value = "";      //db에 메시지가 삽입되면 입력란을 빈칸으로 만듬
             }
         }
     }
@@ -23,3 +22,21 @@ sendBtn.onclick = () =>{
     let formData = new FormData(form);  //새로운 formData 객체 생성
     xhr.send(formData);                 //폼데이터를 php로 보냄
 }
+
+setInterval(()=>{       //반복실행함수의 지연설정
+    //xml 시작
+    let xhr = new XMLHttpRequest();    //xml 객체 생성
+    xhr.open("POST", "php/get-chat.php", true);    
+    xhr.onload = ()=>{
+        if(xhr.readyState === XMLHttpRequest.DONE){
+            if(xhr.status === 200){
+                let data = xhr.response;
+                chatBox.innerHTML = data;
+            }
+        }
+    }
+    
+    //ajax를 통해 php로 폼데이터를 보내야함
+    let formData = new FormData(form);  //formData 객체 생성
+    xhr.send();                         //form data를 php로 보냄
+}, 500);    //이 기능은 500ms마다 실행됨

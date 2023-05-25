@@ -27,54 +27,10 @@
           </div>
         </header>
         <div class="chat-box">
-          <div class="chat outgoing">
-            <div class="details">
-              <p>어쩌구저쩌구 먕먕 나는 태화니의 기염둥잉 >_< 아잉뿌잉 몰랑</p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="sehee.jpg" alt="">
-            <div class="details">
-              <p>어쩌구저쩌구 개색히야 그만 만들엉 아웅..배불르다 폭식증 도짐</p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>어쩌구저쩌구 먕먕 나는 태화니의 기염둥잉 >_< 아잉뿌잉 몰랑</p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="sehee.jpg" alt="">
-            <div class="details">
-              <p>어쩌구저쩌구 개색히야 그만 만들엉 아웅..배불르다 폭식증 도짐</p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>어쩌구저쩌구 먕먕 나는 태화니의 기염둥잉 >_< 아잉뿌잉 몰랑</p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="sehee.jpg" alt="">
-            <div class="details">
-              <p>어쩌구저쩌구 개색히야 그만 만들엉 아웅..배불르다 폭식증 도짐</p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>어쩌구저쩌구 먕먕 나는 태화니의 기염둥잉 >_< 아잉뿌잉 몰랑</p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="sehee.jpg" alt="">
-            <div class="details">
-              <p>어쩌구저쩌구 개색히야 그만 만들엉 아웅..배불르다 폭식증 도짐</p>
-            </div>
-          </div>
         </div>
         <form action="#" class="typing-area" autocomplete="off">
-          <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>" >    <!-- 보내는 사람 아이디-->
-          <input type="text" name="incoming_id" value="<?php echo $user_id; ?>" >                  <!-- 받는 사람 아이디-->
+          <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>" hidden>    <!-- 보내는 사람 아이디-->
+          <input type="text" name="incoming_id" value="<?php echo $user_id; ?>" hidden>                  <!-- 받는 사람 아이디-->
           <input type="text" name="message" class="input-field" placeholder="Type a message here . . .">
           <button><i class="fab fa-telegram-plane"></i></button>
         </form>
