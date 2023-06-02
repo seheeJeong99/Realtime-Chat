@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['unique_id'])){      //사용자 로그인이 되어있을 경우엔 회원가입 페이지가 아닌 사용자목록으로 넘어감
+        header("location: users.php");
+    }
+?>
 <?php include_once "header.php"; ?>
     <body>
         <div class="wrapper">

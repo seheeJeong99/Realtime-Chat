@@ -10,8 +10,13 @@
         $sql = mysqli_query($conn, "SELECT * FROM users WHERE email='{$email}' AND password = '{$password}'");
         if(mysqli_num_rows($sql) > 0){  //사용자 자격과 일치할때
             $row = mysqli_fetch_assoc($sql);
-            $_SESSION['unique_id'] = $row['unique_id']; //이 세션을 활용하여 다른 php파일에서 사용자의 unique_id를 사용함
-            echo "success";
+            $status = "Active now";
+            //사용자 로그인이 성공했을 때 사용자의 status를 active now로 변경
+            $sql2 = mysqli_query($conn, "UPDATE users SET status = '{$status}' WHERE unique_id = {$row['unique_id']}");
+            if($sql2){
+                $_SESSION['unique_id'] = $row['unique_id']; //이 세션을 활용하여 다른 php파일에서 사용자의 unique_id를 사용함
+                echo "success";                             //로그인 완
+            }
         }else{
             echo "이메일이나 패스워드가 일치하지 않습니다";
         }

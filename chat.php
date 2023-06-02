@@ -36,6 +36,6 @@
         </form>
       </section>
     </div>
-    <script src="javascript/chat.js"></script>
+    <script src="javascript/chat.js?ver=2 "></script>
   </body>
 </html>
